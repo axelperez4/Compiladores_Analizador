@@ -25,7 +25,7 @@ public class ALexico {
         
         InterfazGrafica frame = new InterfazGrafica();
         frame.setTitle("Compiladores");
-        frame.setSize(600,600);
+        frame.setSize(1000,700);
         frame.setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); // as per your requirement.

@@ -6,6 +6,7 @@
 package alexico;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -22,13 +23,13 @@ import javax.swing.filechooser.FileSystemView;
  */
 public class InterfazGrafica extends javax.swing.JFrame {
 
+    String lectura_archivo = "";
     /**
      * Creates new form InterfazGrafica
      */
     public InterfazGrafica() {
         initComponents();
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -39,102 +40,203 @@ public class InterfazGrafica extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        boton_SeleccionarFile = new javax.swing.JButton();
-        label_PathDeFile = new javax.swing.JLabel();
-        boton_procesar = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         panel_textoRresultado = new javax.swing.JScrollPane();
         texto_resultado = new javax.swing.JTextArea();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        resultado2 = new javax.swing.JTextArea();
+        boton_SeleccionarFile = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        boton_procesar = new javax.swing.JButton();
+        label_PathDeFile = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setForeground(new java.awt.Color(0, 0, 0));
+        setIconImages(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        boton_SeleccionarFile.setText("Seleccionar input file");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder("INGENIERIA EN SISTEMAS")));
+
+        panel_textoRresultado.setBackground(new java.awt.Color(51, 51, 51));
+
+        texto_resultado.setBackground(new java.awt.Color(204, 204, 204));
+        texto_resultado.setColumns(20);
+        texto_resultado.setRows(5);
+        panel_textoRresultado.setViewportView(texto_resultado);
+
+        resultado2.setBackground(new java.awt.Color(204, 204, 204));
+        resultado2.setColumns(20);
+        resultado2.setRows(5);
+        jScrollPane1.setViewportView(resultado2);
+
+        boton_SeleccionarFile.setBackground(new java.awt.Color(255, 255, 255));
+        boton_SeleccionarFile.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        boton_SeleccionarFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alexico/download (Copy).png"))); // NOI18N
         boton_SeleccionarFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_SeleccionarFileActionPerformed(evt);
             }
         });
 
-        label_PathDeFile.setText("No ha seleccionado un archivo");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 51, 153));
+        jLabel1.setText("UNIVERSIDAD MARIANO GALVEZ");
 
+        boton_procesar.setBackground(new java.awt.Color(255, 255, 255));
+        boton_procesar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        boton_procesar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alexico/images (Copy).png"))); // NOI18N
         boton_procesar.setText("Analizar");
+        boton_procesar.setHideActionText(true);
+        boton_procesar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         boton_procesar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_procesarActionPerformed(evt);
             }
         });
 
-        texto_resultado.setColumns(20);
-        texto_resultado.setRows(5);
-        panel_textoRresultado.setViewportView(texto_resultado);
+        label_PathDeFile.setText("No ha seleccionado un archivo");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panel_textoRresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 665, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(boton_procesar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(boton_SeleccionarFile)
-                        .addGap(43, 43, 43)
-                        .addComponent(label_PathDeFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(38, Short.MAX_VALUE))
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alexico/mariano galvez (Copy).png"))); // NOI18N
+        jLabel2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
+
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alexico/borrar (Copy).jpg"))); // NOI18N
+        jButton1.setText("Borrar");
+        jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton1.setHideActionText(true);
+        jButton1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel3.setText("DATOS ARCHIVO");
+        jLabel3.setToolTipText("");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("ANALISIS LEXICO");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(54, 54, 54)
+                                .addComponent(panel_textoRresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(boton_SeleccionarFile, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(label_PathDeFile, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(boton_procesar)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addComponent(jLabel1))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(322, 322, 322)
+                                .addComponent(jLabel4)))))
+                .addContainerGap(649, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(boton_SeleccionarFile)
-                    .addComponent(label_PathDeFile))
-                .addGap(38, 38, 38)
-                .addComponent(boton_procesar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(panel_textoRresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(11, 11, 11))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(6, 6, 6)))))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel_textoRresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(boton_SeleccionarFile, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(boton_procesar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton1))
+                            .addComponent(label_PathDeFile, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18))
         );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1590, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void boton_SeleccionarFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_SeleccionarFileActionPerformed
         // create an object of JFileChooser class 
-            JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory()); 
-  
-            // invoke the showsOpenDialog function to show the save dialog 
-            int r = j.showOpenDialog(null); 
-  
-            // if the user selects a file 
-            if (r == JFileChooser.APPROVE_OPTION) 
-  
-            { 
-                // set the label to the path of the selected file 
-                label_PathDeFile.setText(j.getSelectedFile().getAbsolutePath()); 
-            } 
-            // if the user cancelled the operation 
-            else
-                label_PathDeFile.setText("No ha seleccionado un archivo");
+        JFileChooser j = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+
+        // invoke the showsOpenDialog function to show the save dialog 
+        int r = j.showOpenDialog(null);
+
+        // if the user selects a file 
+        if (r == JFileChooser.APPROVE_OPTION) {
+            // set the label to the path of the selected file 
+            label_PathDeFile.setText(j.getSelectedFile().getAbsolutePath());
+        } // if the user cancelled the operation 
+        else {
+            label_PathDeFile.setText("No ha seleccionado un archivo");
+        }
     }//GEN-LAST:event_boton_SeleccionarFileActionPerformed
 
     private void boton_procesarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_procesarActionPerformed
-        if (this.label_PathDeFile.getText() == "No ha seleccionado un archivo")
-        {
+        if (this.label_PathDeFile.getText() == "No ha seleccionado un archivo") {
             JOptionPane.showMessageDialog(this, "Debe seleccionar un archivo antes para analizar.", "AVISO", JOptionPane.WARNING_MESSAGE);
-        }
-        else
-        {
-            try
-            {
+        } else {
+            try {
+                String path = this.label_PathDeFile.getText();
+                Filereader(path);
                 Analizar();
-            }
-            catch(Exception e)
-            {
+                
+            } catch (Exception e) {
 
             }
         }
     }//GEN-LAST:event_boton_procesarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        texto_resultado.setText("");
+        resultado2.setText("");
+
+// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -174,49 +276,95 @@ public class InterfazGrafica extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton boton_SeleccionarFile;
     private javax.swing.JButton boton_procesar;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JLabel label_PathDeFile;
     private javax.swing.JScrollPane panel_textoRresultado;
+    private javax.swing.JTextArea resultado2;
     private javax.swing.JTextArea texto_resultado;
     // End of variables declaration//GEN-END:variables
 
     private void Analizar() {
-        try
-        {
+        try {
             //Obtenemos el path del archivo a leer y creamos un reader para enviarle a jflex
             String path = this.label_PathDeFile.getText();
-            String resultado = ""; //Aqui almacenamos los resultados (tokens)
-            RecuperarCodigo rc= new RecuperarCodigo();
+            String resultado = ""; //Aqui almacenamos los resultados (tokens)          
+            RecuperarCodigo rc = new RecuperarCodigo();
             Reader reader = new BufferedReader(new FileReader(path));
             Lexema analizador = new Lexema(reader);
+            //BufferedReader leer = new BufferedReader(new FileReader(path));
             
-            while (true)
-            {
+
+            while (true) {
                 tokens token = analizador.yylex();
                 if (token == null) //Si es null, significa que llegó al final del archivo
                 {
                     resultado += "EOF"; //End of file
                     this.texto_resultado.setText(resultado);
+                    this.resultado2.setText(lectura_archivo);
                     return;
+
                 }
-                
-                switch (token)
-                    {
-                            case ERROR:
-                            resultado += " ERROR LEXICO: "+ analizador.lexemas + " " + " LINEA: " +rc.lineas+"\n"; 
-                            break;
-                            case INDENTIFICADOR: case NUMERO:
-                            resultado += " LEXEMA: " + token + " "+" " +" "+" TOKEN: "+ analizador.lexemas + "\n";
-                            break;
-                            default:
-                            resultado += " LEXEMA: " + token + " "+" " +" "+" TOKEN: "+ analizador.lexemas + "\n";
+
+                switch (token) {
+                    case ERROR:
+                        resultado += " ERROR LEXICO: " + analizador.lexemas + " " + " LINEA: " + rc.lineas + "\n";
+                        break;
+                    case INDENTIFICADOR:
+                    case NUMERO:
+                        resultado += " LEXEMA: " + token + " " + " " + " " + " TOKEN: " + analizador.lexemas + "\n";
+                        break;
+                    default:
+                        resultado += " LEXEMA: " + token + " " + " " + " " + " TOKEN: " + analizador.lexemas + "\n";
                 }
             }
-            
-        }
-        catch (FileNotFoundException ex) {
+
+        } catch (FileNotFoundException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public void Filereader(String path) {
+        System.out.println(path);
+        FileReader fr = null;
+        try {
+            String cadena = "";
+            
+            File Leer = new File(path);
+            fr = new FileReader(Leer);
+            BufferedReader br = new BufferedReader(fr);
+            try {
+                String linea;
+                while ((linea = br.readLine()) != null) {
+
+                    cadena += " \n" + linea;
+                    
+                }
+                lectura_archivo = cadena;
+            } catch (IOException ex) {
+                
+                Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fr.close();
+            } catch (IOException ex) {
+                Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    }
+
+    private void Filereader() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
