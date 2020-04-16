@@ -67,6 +67,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
         texto_resultado.setBackground(new java.awt.Color(204, 204, 204));
         texto_resultado.setColumns(20);
+        texto_resultado.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         texto_resultado.setRows(5);
         panel_textoRresultado.setViewportView(texto_resultado);
 
@@ -315,12 +316,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
                     case ERROR:
                         resultado += " ERROR LEXICO: " + analizador.lexemas + " " + " LINEA: " + rc.lineas + "\n";
                         break;
-                    case INDENTIFICADOR:
-                    case NUMERO:
-                        resultado += " LEXEMA: " + token + " " + " " + " " + " TOKEN: " + analizador.lexemas + "\n";
+                        case INDENTIFICADOR: 
+                        case NUMERO:
+                        resultado += "TOKEN:  " + token + " "+"\tLEXEMA:  " + analizador.lexemas + "\n";
                         break;
-                    default:
-                        resultado += " LEXEMA: " + token + " " + " " + " " + " TOKEN: " + analizador.lexemas + "\n";
+                        default:
+                        resultado += "TOKEN:  " + token + " "+"\tLEXEMA:  "+ analizador.lexemas + "\n";
+
                 }
             }
 
@@ -347,7 +349,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                     cadena += " \n" + linea;
                     
                 }
-                lectura_archivo = cadena;
+                lectura_archivo =" " +cadena;
             } catch (IOException ex) {
                 
                 Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);

@@ -26,7 +26,7 @@ RecuperarCodigo rc= new RecuperarCodigo();
 /* Operadores mas y menos */
 <YYINITIAL> "+" {rc.lineas=yyline;lexemas=yytext(); return MAS;}
 <YYINITIAL> "-" {rc.lineas=yyline;lexemas=yytext(); return MENOS;}
-<YYINITIAL> "==" {rc.lineas=yyline;lexemas=yytext(); return IGUAL;}
+<YYINITIAL> "=" {rc.lineas=yyline;lexemas=yytext(); return IGUAL;}
 /* Palabras reservadas */
 <YYINITIAL> "proceso" {rc.lineas=yyline;lexemas=yytext(); return RESERVADA;}
 <YYINITIAL> "finproceso" {rc.lineas=yyline;lexemas=yytext(); return RESERVADA;}

@@ -8,6 +8,7 @@ package alexico;
 import java.awt.BorderLayout;
 import java.io.File;
 import javax.swing.JFrame;
+import javax.swing.UIManager;
 
 /**
  *
@@ -20,9 +21,14 @@ public class ALexico {
      */
     public static void main(String[] args) {
         //Ejecutar sólo si se hicieron cambios a lexema.jflex
-        //String archivo = "src\\alexico\\lexema.jflex";
-        //generar(archivo);
+//        String archivo = "src\\alexico\\lexema.jflex";
+//        generar(archivo);
         
+        try { 
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"); 
+        } catch (Exception ex) { 
+            ex.printStackTrace(); 
+        }
         InterfazGrafica frame = new InterfazGrafica();
         frame.setTitle("Compiladores");
         frame.setSize(1000,700);
