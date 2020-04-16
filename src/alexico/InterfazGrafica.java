@@ -78,7 +78,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
         boton_SeleccionarFile.setBackground(new java.awt.Color(255, 255, 255));
         boton_SeleccionarFile.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        boton_SeleccionarFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alexico/download (Copy).png"))); // NOI18N
+        boton_SeleccionarFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alexico/download.png"))); // NOI18N
         boton_SeleccionarFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_SeleccionarFileActionPerformed(evt);
@@ -91,7 +91,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
         boton_procesar.setBackground(new java.awt.Color(255, 255, 255));
         boton_procesar.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        boton_procesar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alexico/images (Copy).png"))); // NOI18N
+        boton_procesar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alexico/images.png"))); // NOI18N
         boton_procesar.setText("Analizar");
         boton_procesar.setHideActionText(true);
         boton_procesar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -103,11 +103,11 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
         label_PathDeFile.setText("No ha seleccionado un archivo");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alexico/mariano galvez (Copy).png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alexico/mariano.png"))); // NOI18N
         jLabel2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
         jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alexico/borrar (Copy).jpg"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alexico/borrar.jpg"))); // NOI18N
         jButton1.setText("Borrar");
         jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton1.setHideActionText(true);
@@ -159,7 +159,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(322, 322, 322)
                                 .addComponent(jLabel4)))))
-                .addContainerGap(649, Short.MAX_VALUE))
+                .addContainerGap(646, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

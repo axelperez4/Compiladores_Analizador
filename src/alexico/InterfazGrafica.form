@@ -96,7 +96,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="649" max="32767" attributes="0"/>
+                  <EmptySpace pref="646" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -202,7 +202,7 @@
               <Font name="Tahoma" size="11" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/alexico/download (Copy).png"/>
+              <Image iconType="3" name="/alexico/download.png"/>
             </Property>
           </Properties>
           <Events>
@@ -232,7 +232,7 @@
               <Font name="Tahoma" size="11" style="1"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/alexico/images (Copy).png"/>
+              <Image iconType="3" name="/alexico/images.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Analizar"/>
             <Property name="hideActionText" type="boolean" value="true"/>
@@ -253,7 +253,7 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/alexico/mariano galvez (Copy).png"/>
+              <Image iconType="3" name="/alexico/mariano.png"/>
             </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.CompoundBorderInfo">
@@ -268,7 +268,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/alexico/borrar (Copy).jpg"/>
+              <Image iconType="3" name="/alexico/borrar.jpg"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Borrar"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
