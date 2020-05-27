@@ -10,13 +10,29 @@ package alexico;
  * @author Diego López
  */
 public enum tokens {
-     MAS,
-    MENOS,
-    IGUAL,
-    RESERVADA,
-    CONSTANTE,
-    NUMERO,
-    INDENTIFICADOR,
-    CADENA,
-    ERROR
+    Linea,
+    Suma,
+    Menos,
+    Por,
+    Operador_Relacional,
+    Operador_Asignacion,
+    Parentesis_A,
+    Parentesis_C,
+    Proceso,
+    FinProceso,
+    Escribir,
+    Leer,
+    Repetir,
+    Hasta,
+    Que,
+    Mientras,
+    Hacer,
+    FinMientras,
+    Pi,
+    Metro,
+    Kilogramo,
+    Numero,
+    Identificador,
+    Cadena,
+    error
 }

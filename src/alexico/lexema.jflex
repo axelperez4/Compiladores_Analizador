@@ -12,7 +12,7 @@ import static alexico.tokens.*;
 DIGITO=[0-9]+
 LETRAS=[A-Za-z_]+
 CADENA="\""[^*]~"\"" | "\"" + "\""
-ESPACIO =[ ,\t,\r,\n]+
+ESPACIO =[ ,\t,\r]+
 
 /* Metodo que tomara cada token  */
 %{
@@ -23,32 +23,45 @@ RecuperarCodigo rc= new RecuperarCodigo();
 /* Reglas y Acciones */
 /* cuando sea un espacio que lo ignore */
 {ESPACIO} {/*Ignore*/}
-/* Operadores mas y menos */
-<YYINITIAL> "+" {rc.lineas=yyline;lexemas=yytext(); return MAS;}
-<YYINITIAL> "-" {rc.lineas=yyline;lexemas=yytext(); return MENOS;}
-<YYINITIAL> "=" {rc.lineas=yyline;lexemas=yytext(); return IGUAL;}
+
+("\n") {rc.lineas=yyline;lexemas=yytext(); return Linea;}
+
+/* Operadores Aritmeticos */
+("+") {rc.lineas=yyline;lexemas=yytext(); return Suma;}
+("-") {rc.lineas=yyline;lexemas=yytext(); return Menos;}
+("*") {rc.lineas=yyline;lexemas=yytext(); return Por;}
+/*Operadores relacionales*/
+("=" | "<" | ">" | "<=" | ">=" | "<>") {rc.lineas=yyline;lexemas=yytext(); return Operador_Relacional;}
+
+/*Operadores asignacion*/
+("<-") {rc.lineas=yyline;lexemas=yytext(); return Operador_Asignacion;}
+
 /* Palabras reservadas */
-<YYINITIAL> "proceso" {rc.lineas=yyline;lexemas=yytext(); return RESERVADA;}
-<YYINITIAL> "finproceso" {rc.lineas=yyline;lexemas=yytext(); return RESERVADA;}
-<YYINITIAL> "escribir" {rc.lineas=yyline;lexemas=yytext(); return RESERVADA;}
-<YYINITIAL> "leer" {rc.lineas=yyline;lexemas=yytext(); return RESERVADA;}
-<YYINITIAL> "repetir" {rc.lineas=yyline;lexemas=yytext(); return RESERVADA;}
-<YYINITIAL> "hasta" {rc.lineas=yyline;lexemas=yytext(); return RESERVADA;}
-<YYINITIAL> "que" {rc.lineas=yyline;lexemas=yytext(); return RESERVADA;}
-<YYINITIAL> "mientras" {rc.lineas=yyline;lexemas=yytext(); return RESERVADA;}
-<YYINITIAL> "hacer" {rc.lineas=yyline;lexemas=yytext(); return RESERVADA;}
-<YYINITIAL> "finmientras" {rc.lineas=yyline;lexemas=yytext(); return RESERVADA;}
+("(") {rc.lineas=yyline;lexemas=yytext(); return Parentesis_A;}
+(")") {rc.lineas=yyline;lexemas=yytext(); return Parentesis_C;}
+("proceso") {rc.lineas=yyline;lexemas=yytext(); return Proceso;}
+("finproceso") {rc.lineas=yyline;lexemas=yytext(); return FinProceso;}
+("escribir") {rc.lineas=yyline;lexemas=yytext(); return Escribir;}
+("leer") {rc.lineas=yyline;lexemas=yytext(); return Leer;}
+("repetir") {rc.lineas=yyline;lexemas=yytext(); return Repetir;}
+("hasta") {rc.lineas=yyline;lexemas=yytext(); return Hasta;}
+("que") {rc.lineas=yyline;lexemas=yytext(); return Que;}
+("mientras") {rc.lineas=yyline;lexemas=yytext(); return Mientras;}
+("hacer") {rc.lineas=yyline;lexemas=yytext(); return Hacer;}
+("finmientras") {rc.lineas=yyline;lexemas=yytext(); return FinMientras;}
+
 /* Constantes */
-<YYINITIAL> "pi" {rc.lineas=yyline;lexemas=yytext(); return CONSTANTE;}
-<YYINITIAL> "metro" {rc.lineas=yyline;lexemas=yytext(); return CONSTANTE;}
-<YYINITIAL> "mt" {rc.lineas=yyline;lexemas=yytext(); return CONSTANTE;}
-<YYINITIAL> "kilogramo" {rc.lineas=yyline;lexemas=yytext(); return CONSTANTE;}
-<YYINITIAL> "kg" {rc.lineas=yyline;lexemas=yytext(); return CONSTANTE;}
+("pi") {rc.lineas=yyline;lexemas=yytext(); return Pi;}
+("metro" | "mt") {rc.lineas=yyline;lexemas=yytext(); return Metro;}
+("kilogramo" | "kg") {rc.lineas=yyline;lexemas=yytext(); return Kilogramo;}
+
 /* Digito */
-<YYINITIAL> {DIGITO}+ {rc.lineas=yyline;lexemas=yytext(); return NUMERO;}
+("(-"{DIGITO}+")") | {DIGITO}+ {rc.lineas=yyline;lexemas=yytext(); return Numero;}
 /*Variables que contencas letras seguido de letras o numeros*/
-<YYINITIAL> {LETRAS}({LETRAS}|{DIGITO})* {rc.lineas=yyline;lexemas=yytext(); return INDENTIFICADOR;}
+{LETRAS}({LETRAS}|{DIGITO})* {rc.lineas=yyline;lexemas=yytext(); return Identificador;}
+
 /* verifica las cadenas */
-<YYINITIAL> {CADENA}+ {rc.lineas=yyline;lexemas=yytext(); return CADENA;}
+{CADENA}+ {rc.lineas=yyline;lexemas=yytext(); return Cadena;}
+
 /* indica error cuando no exista algo no declarada antes*/
-. {rc.lineas=yyline;lexemas=yytext(); return ERROR;}
+. {rc.lineas=yyline;lexemas=yytext(); return error;}

@@ -1,8 +1,5 @@
-proceso Repetir01
-    repetir
-        escribir"Dime tu clave de acceso"
-        leer clave
-                
-    hasta que clave=1234
-    escribir "Bienvenido!"
+proceso nombre1
+escribir "escriba algo"
+leer Var01
+
 finproceso
