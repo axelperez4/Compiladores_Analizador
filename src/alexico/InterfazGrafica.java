@@ -88,6 +88,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
         boton_SeleccionarFile.setBackground(new java.awt.Color(255, 255, 255));
         boton_SeleccionarFile.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        boton_SeleccionarFile.setIcon(new javax.swing.ImageIcon(getClass().getResource("/alexico/images.png"))); // NOI18N
         boton_SeleccionarFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_SeleccionarFileActionPerformed(evt);
@@ -174,8 +175,8 @@ public class InterfazGrafica extends javax.swing.JFrame {
                                     .addGap(60, 60, 60)
                                     .addComponent(panel_textoRresultado, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(boton_SeleccionarFile, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(boton_SeleccionarFile, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(label_PathDeFile, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addComponent(jScrollPane2)))))
                 .addContainerGap(649, Short.MAX_VALUE))
@@ -210,7 +211,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(boton_SeleccionarFile, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
+                        .addGap(27, 27, 27)
                         .addComponent(label_PathDeFile, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -335,7 +336,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton boton_SeleccionarFile;
+    public javax.swing.JButton boton_SeleccionarFile;
     private javax.swing.JButton boton_procesar;
     private javax.swing.JButton btnSintactico;
     private javax.swing.JButton jButton1;
@@ -346,7 +347,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel label_PathDeFile;
+    public javax.swing.JLabel label_PathDeFile;
     private javax.swing.JScrollPane panel_textoRresultado;
     private javax.swing.JTextArea resultado2;
     private javax.swing.JTextArea texto_resultado;

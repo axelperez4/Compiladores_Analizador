@@ -37,7 +37,7 @@ public class ALexico {
         }
         InterfazGrafica frame = new InterfazGrafica();
         frame.setTitle("Compiladores");
-        frame.setSize(1000, 700);
+        frame.setSize(1000, 900);
         frame.setLayout(new BorderLayout());
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
