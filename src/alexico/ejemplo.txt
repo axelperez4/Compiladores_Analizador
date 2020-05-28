@@ -1,5 +1,14 @@
-proceso nombre1
-escribir "escriba algo"
-leer Var01
+proceso  Repetir01
+
+    repetir
+        escribir"Dime tu clave de acceso"
+        leer clave
+    hasta que clave=1234
+
+    escribir "Bienvenido!"
+    
+    mientras (var1 = 5) hacer 
+	escribir "hola"
+    finmientras
 
 finproceso

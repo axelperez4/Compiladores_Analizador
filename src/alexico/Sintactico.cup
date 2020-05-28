@@ -25,7 +25,7 @@ terminal	Suma,Menos,Por,Operador_Relacional,Operador_Asignacion,Parentesis_A,Par
 terminal String Number;
 
 		
-non terminal INICIO, SENTENCIA, ESCRIBIR, LEER, REPETIR, SENT_BOOL,MIENTRAS,SENTENCIA_ASIGNACION,ASIG;
+non terminal INICIO, SENTENCIA, ESCRIBIR, LEER, REPETIR, SENT_BOOL, MIENTRAS, SENTENCIA_ASIGNACION, ASIG;
 non terminal String EXPR;
 
 /* Precedences */
@@ -38,24 +38,28 @@ INICIO ::=	Proceso SENTENCIA FinProceso|Proceso Identificador SENTENCIA FinProce
 
 
 SENTENCIA ::=   SENTENCIA LEER | 
+                
 		LEER | 
 		SENTENCIA ESCRIBIR |
+                
 		ESCRIBIR|
 		SENTENCIA REPETIR |
+                
 		REPETIR|
 		SENTENCIA MIENTRAS|
+                
 		MIENTRAS;
 	
 ESCRIBIR ::= Escribir Cadena;
 
 LEER ::= Leer Identificador;
 
-REPETIR ::= Repetir Hasta Que;
+REPETIR ::= Repetir SENTENCIA Hasta Que SENT_BOOL;
 
 SENT_BOOL ::= Identificador Operador_Relacional Numero|Identificador Operador_Relacional Cadena;
 
 
-MIENTRAS ::= Mientras SENT_BOOL Hacer SENTENCIA FinMientras;
+MIENTRAS ::= Mientras Parentesis_A SENT_BOOL Parentesis_C Hacer SENTENCIA FinMientras;
 	
 ASIG::= Identificador Operador_Asignacion Identificador Suma Numero;
 

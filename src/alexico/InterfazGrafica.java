@@ -56,7 +56,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
         boton_procesar = new javax.swing.JButton();
         label_PathDeFile = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        BotonBorrar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -114,13 +114,13 @@ public class InterfazGrafica extends javax.swing.JFrame {
 
         jLabel2.setBorder(javax.swing.BorderFactory.createCompoundBorder());
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Borrar");
-        jButton1.setHideActionText(true);
-        jButton1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        BotonBorrar.setBackground(new java.awt.Color(255, 255, 255));
+        BotonBorrar.setText("Borrar");
+        BotonBorrar.setHideActionText(true);
+        BotonBorrar.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        BotonBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                BotonBorrarActionPerformed(evt);
             }
         });
 
@@ -164,7 +164,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                                 .addGap(59, 59, 59)
                                 .addComponent(boton_procesar)))
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1))
+                        .addComponent(BotonBorrar))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,7 +201,7 @@ public class InterfazGrafica extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(boton_procesar)
-                            .addComponent(jButton1))
+                            .addComponent(BotonBorrar))
                         .addGap(7, 7, 7)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -225,66 +225,47 @@ public class InterfazGrafica extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void BotonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBorrarActionPerformed
         texto_resultado.setText("");
         resultado2.setText("");
         txtSintactico.setText("");
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_BotonBorrarActionPerformed
 
     private void boton_procesarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_procesarActionPerformed
         try {
-            /* if (this.label_PathDeFile.getText() == "No ha seleccionado un archivo") {
+            if (this.label_PathDeFile.getText() == "No ha seleccionado un archivo") {
             JOptionPane.showMessageDialog(this, "Debe seleccionar un archivo antes para analizar.", "AVISO", JOptionPane.WARNING_MESSAGE);
-            } else {
-            try {
-            String path = this.label_PathDeFile.getText();
-            Filereader(path);
-            Analizar();
-            
-            } catch (Exception e) {
-
+            } 
+            else {
+                Analizar();
             }
-            }*/
-            Analizar();
+            
         } catch (IOException ex) {
             Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_boton_procesarActionPerformed
 
     private void boton_SeleccionarFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_SeleccionarFileActionPerformed
-        // create an object of JFileChooser class
+       
         JFileChooser j = new JFileChooser();
-        j.showOpenDialog(null);
+        int r = j.showOpenDialog(null);
         File archivo = new File(j.getSelectedFile().getAbsolutePath());
+        if (r == JFileChooser.APPROVE_OPTION) {
+            // Poner el path en la etiqueta / interfaz
+            label_PathDeFile.setText(j.getSelectedFile().getAbsolutePath());
+        }
         
         try {
             String ST = new String(Files.readAllBytes(archivo.toPath()));
             resultado2.setText(ST);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-       /* // invoke the showsOpenDialog function to show the save dialog
-        int r = j.showOpenDialog(null);
-
-        // if the user selects a file
-        if (r == JFileChooser.APPROVE_OPTION) {
-            // set the label to the path of the selected file
-            label_PathDeFile.setText(j.getSelectedFile().getAbsolutePath());
-        } // if the user cancelled the operation
-        else {
-            label_PathDeFile.setText("No ha seleccionado un archivo");
-        }*/
+        } catch (Exception ex) {
+            Logger.getLogger(InterfazGrafica.class.getName()).log(Level.SEVERE, null, ex);}
     }//GEN-LAST:event_boton_SeleccionarFileActionPerformed
 
     private void btnSintacticoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSintacticoActionPerformed
-        // TODO add your handling code here:
          String ST = resultado2.getText();
-         Sintactico s = new Sintactico(new alexico.LexemaCup(new StringReader(ST)));
+         LexemaCup l = new alexico.LexemaCup(new StringReader(ST));
+         Sintactico s = new Sintactico(l);
          
         try {
             s.parse();
@@ -336,10 +317,10 @@ public class InterfazGrafica extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonBorrar;
     public javax.swing.JButton boton_SeleccionarFile;
     private javax.swing.JButton boton_procesar;
     private javax.swing.JButton btnSintactico;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -381,46 +362,46 @@ public class InterfazGrafica extends javax.swing.JFrame {
                     resultado += "  <Operador Aritmetico>\t" + analizador.lexemas + "\n";
                     break;
                     case Operador_Relacional:
-                    resultado += "  <Operador RELACIONAL>\t" + analizador.lexemas + "\n";
+                    resultado += "  <Operador RELACIONAL>\t" + token + "\n";
                     break;
                     case Operador_Asignacion:
-                    resultado += "  <Operador de asignacion>\t" + analizador.lexemas + "\n";
+                    resultado += "  <Operador de asignacion>\t" + token + "\n";
                     break;
                     case Parentesis_A:
-                    resultado += "  <RESERVADA>\t" + analizador.lexemas + "\n";
+                    resultado += "  <RESERVADA>\t" + token + "\n";
                     break;
                     case Parentesis_C:
-                    resultado += "  <RESERVADA>\t" + analizador.lexemas + "\n";
+                    resultado += "  <RESERVADA>\t" + token + "\n";
                     break;
                     case Proceso:
-                    resultado += "  <RESERVADA>\t" + analizador.lexemas + "\n";
+                    resultado += "  <RESERVADA>\t" + token + "\n";
                     break;
                     case FinProceso:
-                    resultado += "  <RESERVADA>\t" + analizador.lexemas + "\n";
+                    resultado += "  <RESERVADA>\t" + token + "\n";
                     break;
                     case Escribir:
-                    resultado += "  <RESERVADA>\t" + analizador.lexemas + "\n";
+                    resultado += "  <RESERVADA>\t" + token + "\n";
                     break;
                     case Leer:
-                    resultado += "  <RESERVADA>\t" + analizador.lexemas + "\n";
+                    resultado += "  <RESERVADA>\t" + token + "\n";
                     break;
                     case Repetir:
-                    resultado += "  <RESERVADA>\t" + analizador.lexemas + "\n";
+                    resultado += "  <RESERVADA>\t" + token + "\n";
                     break;
                     case Hasta:
-                    resultado += "  <RESERVADA>\t" + analizador.lexemas + "\n";
+                    resultado += "  <RESERVADA>\t" + token + "\n";
                     break;
                     case Que:
-                    resultado += "  <RESERVADA>\t" + analizador.lexemas + "\n";
+                    resultado += "  <RESERVADA>\t" + token + "\n";
                     break;
                     case Mientras:
-                    resultado += "  <RESERVADA>\t" + analizador.lexemas + "\n";
+                    resultado += "  <RESERVADA>\t" + token + "\n";
                     break;
                     case Hacer:
-                    resultado += "  <RESERVADA>\t" + analizador.lexemas + "\n";
+                    resultado += "  <RESERVADA>\t" + token + "\n";
                     break;
                     case FinMientras:
-                    resultado += "  <ORESERVADA>\t" + analizador.lexemas + "\n";
+                    resultado += "  <ORESERVADA>\t" + token + "\n";
                     break;
                     case Kilogramo:
                     resultado += "  <CONSTANTE>\t" + analizador.lexemas + "\n";
@@ -429,26 +410,22 @@ public class InterfazGrafica extends javax.swing.JFrame {
                     resultado += "  <CONSTANTE>\t" + analizador.lexemas + "\n";
                     break;
                     case Numero:
-                    resultado += "  <NUMERO>\t\t" + analizador.lexemas + "\n";
+                    resultado += "  <NUMERO>\t\t" + token + "\n";
                     break;
                     case Identificador:
-                    resultado += "  <INDENTIFICADOR>\t" + analizador.lexemas + "\n";
+                    resultado += "  <INDENTIFICADOR>\t" + token + "\n";
                     break;
                     case Cadena:
-                    resultado += "  <CADENA>\t\t" + analizador.lexemas + "\n";
+                    resultado += "  <CADENA>\t\t" + token + "\n";
                     break;
                     case error:
                     resultado += "  <Simbolo no definido>\t" + analizador.lexemas + "\n";
                     break;
                     default:
-                    resultado += "  < " + analizador.lexemas + " >\n";
+                    resultado += "  < " + token + " >\n";
                     break;
             }
         }
 
   }  
-
-private void Filereader() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
